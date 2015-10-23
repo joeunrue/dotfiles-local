@@ -1,0 +1,3 @@
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'mileszs/ack.vim'
+Plug 'sjl/vitality.vim'
