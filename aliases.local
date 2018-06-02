@@ -1,6 +1,6 @@
 # Bundler
 alias be="bundle exec"
-alias bi="b install --path vendor"
+alias bi="b install"
 alias bil="bi --local"
 alias bu="b update"
 alias binit="bi && b package && echo 'vendor/ruby' >> .gitignore"
@@ -8,3 +8,9 @@ alias binit="bi && b package && echo 'vendor/ruby' >> .gitignore"
 # Tmux shortcuts
 alias tml="tmux list-sessions"
 alias tma="tmux -2 attach -t $1"
+
+# Rake
+alias rake='noglob rake'
+
+# Springbot
+alias sshsidekiq='ssh-multi -d "$(echo sidekiq{1..4})"'

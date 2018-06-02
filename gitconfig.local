@@ -12,7 +12,9 @@
   dh = diff HEAD
   dh1 = diff HEAD~1
   la = !git l --all
+  pf = push --force-with-lease
   st = status
+  prune-stale = !git remote prune origin && git branch -vv | grep ': gone]' | awk '{print $1}' | xargs git branch -D
 [branch]
   autosetuprebase = always
 [color]
@@ -23,3 +25,7 @@
   decorate = short
 [push]
   default = upstream
+[commit]
+  gpgsign = true
+[user]
+  signingkey = F9BEFB7CE7AFB88D

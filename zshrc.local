@@ -1,0 +1,21 @@
+# rbenv
+export PATH="$HOME/.rbenv/bin:$PATH"
+
+# pip
+export PATH="$HOME/.local/bin:$PATH"
+
+# fzf
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# eval "$(rbenv init -)"
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+
+# Vim
+export EDITOR="/usr/local/bin/vim"
+
+# TMUX
+export EVENT_NOKQUEUE=1
+
+# Chef / Dokken
+export KITCHEN_YAML=.kitchen.yml
+export KITCHEN_LOCAL_YAML=.kitchen.dokken.yml

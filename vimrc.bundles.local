@@ -1,3 +1,8 @@
+Plug 'jpo/vim-railscasts-theme'
+Plug 'carakan/new-railscasts-theme'
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'mileszs/ack.vim'
-Plug 'sjl/vitality.vim'
+Plug 'mileszs/ack'
+Plug 'sjl/vitality'
+Plug 'rking/ag'
+Plug 'Chun-Yang/vim-action-ag'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }

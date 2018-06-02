@@ -4,15 +4,31 @@ let mapleader = "\\"
 " Settings
 set hlsearch      " highlight matches
 set nojoinspaces  " Join without spaces
+set viminfo="20,<1000,s1000"
+set lazyredraw
 
-colorscheme railscasts
+" Relative Line Numbers
+set relativenumber
+set number
+
+" Colors/Theme
+set t_Co=256
 set background=dark
-highlight NonText guibg=#060606
-highlight Folded  guibg=#0A0A0A guifg=#9090D0
-highlight clear SignColumn
+colorscheme railscasts
+
+" Disable Background Color Erase (BCE) so that color schemes work
+" properly within 256-color terminals
+if &term =~ '256color'
+  set t_ut=
+endif
+
+" highlight NonText guibg=#060606
+" highlight Folded  guibg=#0A0A0A guifg=#9090D0
+" highlight clear SignColumn
 
 " Clipboard!
-set clipboard=unnamed
+"set clipboard=unnamed
+"set clipboard=""
 
 " Don't show color column, it's ugly
 set colorcolumn=""
@@ -37,29 +53,33 @@ map <leader>st mm:%s/\t/  /g<CR>`m
 map <leader>sw mm:%s/ \+$//g<CR>`m
 map <leader>sh mm:%s/:\([a-z_]\+\) \?=> \?/\1: /g<CR>`m
 map <leader>so :so$MYVIMRC<CR>
-map <leader>se :e $MYVIMRC<CR>
+map <leader>se :e ~/.vimrc.local<CR>
 
 map <leader>gr :topleft :split config/routes.rb<cr>
 map <leader>gg :topleft 100 :split Gemfile<cr>
-map <leader>gf :CtrlP %%<cr>
-map <leader>gv :CtrlP app/views/<cr>
-map <leader>gc :CtrlP app/controllers/<cr>
-map <leader>gm :CtrlP app/models/<cr>
-map <leader>gh :CtrlP app/helpers/<cr>
-map <leader>gl :CtrlP lib/<cr>
-map <leader>gp :CtrlP public/<cr>
-map <leader>ga :CtrlP app/assets/<cr>
-map <leader>gs :CtrlP public/stylesheets/<cr>
 
-" CtrlP
-let g:ctrlp_working_path_mode = 'ra'
-let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\v[\/]\.(git|hg|svn)$',
-  \ 'file': '\v\.(exe|so|dll)$',
-  \ 'link': 'some_bad_symbolic_links',
-  \ }
-let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard', 'find %s -type f']
-let g:ctrlp_use_caching = 0
+" Avoid using escape key
+inoremap jk <ESC>
+inoremap kj <ESC>
+
+" Use ag instead of ack
+" if executable('ag')
+"   let g:ackprg = 'ag --vimgrep'
+" endif
+
+" FZF
+set wildignore+=*/log/**
+set wildignore+=*/vendor/**
+set wildignore+=*/public/**
+
+map <C-p> :FZF<cr>
+
+map <leader>gv :FZF app/views/<cr>
+map <leader>gc :FZF app/controllers/<cr>
+map <leader>gm :FZF app/models/<cr>
+map <leader>gh :FZF app/helpers/<cr>
+map <leader>gl :FZF lib/<cr>
+map <leader>gs :FZF spec/<cr>
 
 " Vitality
 let g:vitality_fix_cursor = 1
