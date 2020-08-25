@@ -19,3 +19,15 @@ export EVENT_NOKQUEUE=1
 # Chef / Dokken
 export KITCHEN_YAML=.kitchen.yml
 export KITCHEN_LOCAL_YAML=.kitchen.dokken.yml
+
+# Kubernetes
+export KOPS_STATE_STORE=s3://springbot-kops
+
+# thefuck
+eval $(thefuck --alias)
+
+# Node
+export PATH="/usr/local/opt/node@10/bin:$PATH"
+
+# OSX Fix
+export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES

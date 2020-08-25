@@ -13,4 +13,12 @@ alias tma="tmux -2 attach -t $1"
 alias rake='noglob rake'
 
 # Springbot
-alias sshsidekiq='ssh-multi -d "$(echo sidekiq{1..4})"'
+alias sshsidekiq='ssh-multi -d "$(echo sidekiq{1..5})"'
+alias sshmongo='ssh-multi -d "mongo-a mongo-b mongo-c mongo-d mongo-e"'
+
+# Docker
+alias ld="lazydocker"
+alias awsdocker="aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 328280503559.dkr.ecr.us-east-1.amazonaws.com/sb-www"
+
+# SSH
+alias sshcopy="ssh-copy-id -i ~/.ssh/id_rsa.pub"

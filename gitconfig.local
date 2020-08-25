@@ -11,10 +11,11 @@
   di = diff
   dh = diff HEAD
   dh1 = diff HEAD~1
+  graph = log --decorate --all --oneline --graph
   la = !git l --all
   pf = push --force-with-lease
-  st = status
   prune-stale = !git remote prune origin && git branch -vv | grep ': gone]' | awk '{print $1}' | xargs git branch -D
+  st = status
 [branch]
   autosetuprebase = always
 [color]
@@ -29,3 +30,5 @@
   gpgsign = true
 [user]
   signingkey = F9BEFB7CE7AFB88D
+[credential]
+  helper = osxkeychain
